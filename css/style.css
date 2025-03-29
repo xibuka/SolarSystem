@@ -1,0 +1,356 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+#scene-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    z-index: 1;
+}
+
+#info {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 2;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+p {
+    margin: 5px 0 0 0;
+}
+
+/* Facts panel */
+.facts-panel {
+    position: fixed;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 350px;
+    max-height: 80vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    overflow-y: auto;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.facts-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(30, 30, 50, 0.8);
+    border-radius: 10px 10px 0 0;
+}
+
+.facts-title {
+    margin: 0;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.facts-close {
+    background: transparent;
+    border: none;
+    color: #aaa;
+    cursor: pointer;
+    font-size: 0.9rem;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.facts-close:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.facts-content {
+    padding: 20px;
+}
+
+.facts-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.fact-row {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.fact-label {
+    color: #aad;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.fact-value {
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+.interesting-facts {
+    margin-top: 30px;
+}
+
+.interesting-facts h3 {
+    color: #aad;
+    font-size: 1rem;
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+.interesting-facts ul {
+    padding-left: 20px;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.interesting-facts li {
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+/* Control panel and buttons */
+.solar-control-panel {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 18px 30px;
+    border-radius: 40px;
+    backdrop-filter: blur(10px);
+    z-index: 2000;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.7), 0 0 15px rgba(100, 150, 255, 0.3);
+    border: 2px solid rgba(120, 160, 255, 0.4);
+    max-width: 90%;
+}
+
+.solar-control-button,
+.solar-reset-button,
+.solar-toggle-button {
+    background-color: rgba(40, 60, 100, 0.9);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    outline: none;
+    font-family: 'Arial', sans-serif;
+    min-width: 140px;
+    text-align: center;
+    letter-spacing: 0.5px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.solar-control-button:hover,
+.solar-reset-button:hover,
+.solar-toggle-button:hover {
+    background-color: rgba(80, 120, 200, 0.95);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4), 0 0 10px rgba(100, 150, 255, 0.4);
+}
+
+.solar-toggle-button.active {
+    background-color: rgba(100, 150, 255, 0.95);
+    box-shadow: 0 0 15px rgba(100, 150, 255, 0.7);
+    border-color: rgba(255, 255, 255, 0.8);
+}
+
+.solar-reset-button {
+    background-color: rgba(150, 60, 120, 0.9);
+}
+
+.solar-reset-button:hover {
+    background-color: rgba(180, 80, 150, 0.95);
+}
+
+/* Legacy control buttons - for backward compatibility */
+.control-button {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    outline: none;
+    display: none; /* Hide legacy buttons */
+}
+
+.reset-button {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    outline: none;
+    display: none; /* Hide legacy buttons */
+}
+
+.toggle-button {
+    position: absolute;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    padding: 8px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    outline: none;
+    display: none; /* Hide legacy buttons */
+}
+
+/* Language menu */
+.lang-menu {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 8px;
+    color: white;
+    padding: 5px;
+    z-index: 100;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.lang-title {
+    padding: 6px 10px;
+    font-size: 0.85rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    font-weight: 500;
+}
+
+.lang-options {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5px;
+    justify-content: center;
+    gap: 5px;
+}
+
+.lang-option {
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s;
+    font-size: 0.8rem;
+}
+
+.lang-option:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.lang-option.active {
+    background-color: rgba(70, 100, 180, 0.5);
+    font-weight: 500;
+}
+
+/* Planet label styles */
+.planet-label {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 3px;
+    z-index: 101;
+    pointer-events: none;
+    font-size: 0.9rem;
+    transform: translate(10px, -50%);
+    backdrop-filter: blur(2px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.permanent-label {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 3px 8px;
+    border-radius: 2px;
+    z-index: 99;
+    pointer-events: none;
+    font-size: 0.8rem;
+    transform: translate(-50%, 0);
+    backdrop-filter: blur(1px);
+    text-align: center;
+}
+
+/* Position for each toggle button */
+.toggle-orbits {
+    bottom: 20px;
+    left: 20px;
+}
+
+.toggle-view {
+    bottom: 20px;
+    left: 140px;
+}
+
+.toggle-speed {
+    bottom: 20px;
+    left: 300px;
+}
+
+.toggle-stars {
+    bottom: 60px;
+    left: 20px;
+}
+
+.toggle-labels {
+    bottom: 60px;
+    left: 140px;
+} 
