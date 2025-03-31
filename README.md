@@ -21,6 +21,7 @@ A 3D interactive animation of our solar system created using Three.js, featuring
 
 1. Clone or download this repository
 2. Serve the files using a local web server:
+
    - You can use Python's built-in server:
      ```bash
      python -m http.server
@@ -29,6 +30,7 @@ A 3D interactive animation of our solar system created using Three.js, featuring
      ```bash
      npx http-server
      ```
+
 3. Open your browser and navigate to `http://localhost:8000` (or whatever port your server uses)
 
 ### Option 2: Direct file access
@@ -42,6 +44,7 @@ Simply open the `index.html` file in a modern browser that supports ES modules (
 - **Right mouse button + drag**: Pan the view
 - **Click on a planet/moon**: Focus the camera on that object and display facts
 - **Control Panel Buttons**:
+
   - **Pause/Resume**: Toggle animation playback
   - **Reset View**: Return to the default camera position
   - **Toggle Orbits**: Show/hide orbit paths
@@ -53,6 +56,7 @@ Simply open the `index.html` file in a modern browser that supports ES modules (
 ## Language Support
 
 Switch between languages using the language selector in the top-right corner:
+
 - English (en)
 - Chinese (zh)
 - Japanese (ja)
@@ -62,6 +66,7 @@ Switch between languages using the language selector in the top-right corner:
 ## Facts Panel
 
 Click on any celestial body to display a facts panel with:
+
 - Key statistics (diameter, mass, temperature, orbital period)
 - Atmospheric composition
 - Distance from the Sun
@@ -78,6 +83,7 @@ Click on any celestial body to display a facts panel with:
 ## Technical Details
 
 This project uses:
+
 - Three.js version 0.159.0 (latest as of creation date)
 - ES6 modules for JavaScript
 - OrbitControls for interactive camera movement
@@ -87,6 +93,7 @@ This project uses:
 ## Browser Compatibility
 
 Works best in modern browsers that support:
+
 - WebGL 2
 - ES6 Modules
 - CSS features like backdrop-filter
