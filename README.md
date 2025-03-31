@@ -2,6 +2,8 @@
 
 A 3D interactive animation of our solar system created using Three.js, featuring realistic planet motions, customized visuals, and educational content.
 
+![Solar System Screenshot](assets/textures/Screen.png)
+
 ## Features
 
 - Realistic model of the solar system with scaled planets
