@@ -23,10 +23,13 @@ A 3D interactive animation of our solar system created using Three.js, featuring
 2. Serve the files using a local web server:
 
    - You can use Python's built-in server:
+
      ```bash
      python -m http.server
      ```
+
    - Or Node.js's `http-server` package:
+
      ```bash
      npx http-server
      ```
@@ -100,4 +103,4 @@ Works best in modern browsers that support:
 
 ## Live Demo
 
-View the live demo on GitHub Pages: [Solar System Simulation](https://xibuka.github.io/SolarSystem/) 
+View the live demo on GitHub Pages: [Solar System Simulation](https://xibuka.github.io/SolarSystem/)
