@@ -235,7 +235,19 @@ function createPauseResumeButton2() {
     });
     return button;
 }
-
+// Create pause/resume button
+function createPauseResumeButton3() {
+    const button = document.createElement('button');
+    button.className = 'control-button';
+    button.textContent = languages[currentLanguage].pause;
+    button.addEventListener('click', () => {
+        isAnimationPaused = !isAnimationPaused;
+        button.textContent = isAnimationPaused ? 
+            languages[currentLanguage].resume : 
+            languages[currentLanguage].pause;
+    });
+    return button;
+}
 // Create reset camera button
 function createResetCameraButton() {
     const button = document.createElement('button');
